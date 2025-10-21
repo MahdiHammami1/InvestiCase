@@ -1,4 +1,4 @@
-package com.example.GreenBack.advice;
+package com.example.demo.advice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
