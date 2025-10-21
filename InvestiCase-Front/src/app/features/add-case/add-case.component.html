@@ -1,0 +1,147 @@
+<div class="add-case-form" dir="rtl">
+  <h2 style="text-align:center;">إضافة قضية جديدة</h2>
+
+  <!-- Step 1: Choisir le type d'affaire -->
+  <div *ngIf="step === 1">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mainType">اختر نوع القضية الرئيسي</label>
+        <select [(ngModel)]="selectedMainType" (ngModelChange)="selectMainType($event)" name="mainType" id="mainType" required>
+          <option value="" disabled selected>-- اختر نوع القضية الرئيسي --</option>
+          <option *ngFor="let type of mainTypes" [value]="type">{{type}}</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="selectedMainType">
+        <label for="caseType">اختر نوع القضية الفرعي</label>
+        <select [(ngModel)]="caseData.caseType" name="caseType" id="caseType" required>
+          <option value="" disabled selected>-- اختر نوع القضية الفرعي --</option>
+          <option *ngFor="let type of availableSubTypes" [value]="type">{{type}}</option>
+        </select>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <button class="add-case-btn" (click)="nextStep()" [disabled]="!selectedMainType || !caseData.caseType">التالي</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Formulaire complet -->
+  <form *ngIf="step === 2" (ngSubmit)="submitCase()" #caseForm="ngForm">
+    <!-- Fields for محاضر وشكايات -->
+    <div *ngIf="isComplaintType()">
+      <div class="form-row">
+        <div class="form-group">
+          <label>عدد الحفظ</label>
+          <input type="text" [(ngModel)]="caseData.caseNumber" name="caseNumber" required />
+        </div>
+        <div class="form-group">
+          <label>المنوب</label>
+          <input type="text" [(ngModel)]="caseData.lawyer" name="lawyer" required />
+        </div>
+        <div class="form-group">
+          <label>السنة</label>
+          <input type="text" [(ngModel)]="caseData.judicialYear" name="judicialYear" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>اسم المحكمة</label>
+          <select [(ngModel)]="caseData.court" name="court" required>
+            <option value="" disabled selected>-- اختر المحكمة --</option>
+            <option *ngFor="let c of courts" [value]="c">{{c}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group case-comments" style="flex: 1 1 100%;">
+          <label>ملاحظات </label>
+          <textarea [(ngModel)]="caseData.comments" name="comments" placeholder="أدخل ملاحظاتك هنا..."></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>المستندات</label>
+          <input type="file" (change)="onFileChange($event)" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Fields for other case types -->
+    <div *ngIf="!isComplaintType()">
+      <div class="form-row">
+        <div class="form-group">
+          <label>عدد الحفظ</label>
+          <input type="text" [(ngModel)]="caseData.caseNumber" name="caseNumber" required />
+        </div>
+        <div class="form-group">
+          <label>نوع القضية </label>
+          <input type="text" [(ngModel)]="caseData.caseType" name="caseType" required disabled />
+        </div>
+        <div class="form-group">
+          <label>مرحلة القضية</label>
+          <select [(ngModel)]="caseData.phase" name="phase" required>
+            <option value="" disabled selected>-- اختر المرحلة --</option>
+            <option *ngFor="let ph of phases" [value]="ph">{{ph}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>السنة </label>
+          <input type="text" [(ngModel)]="caseData.judicialYear" name="judicialYear" required />
+        </div>
+        <div class="form-group">
+          <label>اسم المحكمة</label>
+          <select [(ngModel)]="caseData.court" name="court" required>
+            <option value="" disabled selected>-- اختر المحكمة --</option>
+            <option *ngFor="let c of courts" [value]="c">{{c}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>المنوب</label>
+          <input type="text" [(ngModel)]="caseData.lawyer" name="lawyer" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>رقم المنوب</label>
+          <input type="text" [(ngModel)]="caseData.opponent" name="opponent" />
+        </div>
+        <div class="form-group">
+          <label>الضد</label>
+          <input type="text" [(ngModel)]="caseData.client" name="client" />
+        </div>
+        <div class="form-group">
+          <label>ينوبه</label>
+          <input type="text" [(ngModel)]="caseData.plaintiffPhone" name="plaintiffPhone" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>موضوع القضية </label>
+          <input type="text" [(ngModel)]="caseData.subject" name="subject" />
+        </div>
+        <div class="form-group">
+          <label>موعد الجلسة القادمة</label>
+          <input type="date" [(ngModel)]="caseData.nextSession" name="nextSession" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group case-comments" style="flex: 1 1 100%;">
+          <label>ملاحظات </label>
+          <textarea [(ngModel)]="caseData.comments" name="comments" placeholder="أدخل ملاحظاتك هنا..."></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>المستندات</label>
+          <input type="file" (change)="onFileChange($event)" />
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:1.5rem;">
+      <button type="button" class="add-case-btn" (click)="prevStep()">السابق</button>
+      <button type="submit" class="add-case-btn" [disabled]="loading">حفظ القضية</button>
+      <div *ngIf="error" style="color:red; margin-top:1rem;">{{error}}</div>
+    </div>
+  </form>
+</div>

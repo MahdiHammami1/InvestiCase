@@ -1,0 +1,61 @@
+<div class="archive-list-form" dir="rtl">
+  <h2 style="text-align:center;">قائمة القضايا</h2>
+  <div class="form-row">
+    <div class="form-group">
+      <label>رقم القضية بالمكتب</label>
+      <input type="text" [value]="caseNumberFilter()" (input)="setFilter(caseNumberFilter.set, $event.target.value)" />
+    </div>
+    <div class="form-group">
+      <label>نوع القضية</label>
+      <input type="text" [value]="caseTypeFilter()" (input)="setFilter(caseTypeFilter.set, $event.target.value)" />
+    </div>
+    <div class="form-group">
+      <label>مرحلة القضية</label>
+      <input type="text" [value]="phaseFilter()" (input)="setFilter(phaseFilter.set, $event.target.value)" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>اسم المحكمة</label>
+      <input type="text" [value]="courtFilter()" (input)="setFilter(courtFilter.set, $event.target.value)" />
+    </div>
+    <div class="form-group">
+      <label>اسم الموكل</label>
+      <input type="text" [value]="clientFilter()" (input)="setFilter(clientFilter.set, $event.target.value)" />
+    </div>
+    <div class="form-group">
+      <label>موعد الجلسة القادمة</label>
+      <input type="date" [value]="nextSessionFilter()" (input)="setFilter(nextSessionFilter.set, $event.target.value)" />
+    </div>
+  </div>
+
+  
+  <table class="archive-table">
+    <thead>
+      <tr>
+        <th>رقم القضية بالمكتب</th>
+        <th>نوع القضية</th>
+        <th>مرحلة القضية</th>
+        <th>اسم المحكمة</th>
+        <th>اسم الموكل</th>
+        <th>موعد الجلسة القادمة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of paginatedCases">
+        <td><a [routerLink]="['/case', c.id]">{{c.caseNumber}}</a></td>
+        <td>{{c.caseType}}</td>
+        <td>{{c.phase}}</td>
+        <td>{{c.court}}</td>
+        <td>{{c.client}}</td>
+        <td>{{c.nextSession}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="archive-pagination">
+    <button (click)="prevPage()" [disabled]="page() === 1">السابق</button>
+    <span>صفحة {{page()}}</span>
+    <button (click)="nextPage()" [disabled]="(page() * pageSize) >= filteredCases().length">التالي</button>
+  </div>
+</div>

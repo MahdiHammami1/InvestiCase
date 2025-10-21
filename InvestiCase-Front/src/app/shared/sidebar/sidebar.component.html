@@ -1,0 +1,25 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed()">
+  <button class="sidebar-toggle" (click)="toggleSidebar()" [attr.aria-label]="isCollapsed() ? 'فتح القائمة الجانبية' : 'إغلاق القائمة الجانبية'">
+    <span class="toggle-icon">
+      {{ isCollapsed() ? '☰' : '✕' }}
+    </span>
+  </button>
+  <ul>
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-text">الرئيسية</span>
+    </a></li>
+    <li><a routerLink="/calendar" routerLinkActive="active">
+      <span class="nav-icon">📅</span>
+      <span class="nav-text">جدول القضايا</span>
+    </a></li>
+    <li><a routerLink="/archive" routerLinkActive="active">
+      <span class="nav-icon">📁</span>
+      <span class="nav-text">الأرشيف</span>
+    </a></li>
+    <li><a routerLink="/add-case" routerLinkActive="active">
+      <span class="nav-icon">➕</span>
+      <span class="nav-text">إضافة قضية جديدة</span>
+    </a></li>
+  </ul>
+</aside>

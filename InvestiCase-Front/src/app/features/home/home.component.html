@@ -1,0 +1,56 @@
+<div class="home-container" dir="rtl" >
+  <div class="welcome-section">
+    <h1>مرحباً بكم في InvestiCase</h1>
+    <p>نظام إدارة القضايا المتكامل للمحامين والمكاتب القانونية</p>
+    
+    <div class="action-buttons">
+      <button class="action-btn search-btn" (click)="toggleSearch()">
+        <i class="fas fa-search"></i>
+        بحث في القضايا
+      </button>
+     
+    </div>
+
+    <div class="search-section" *ngIf="showSearch">
+      <div class="search-types">
+        <button *ngFor="let type of caseTypes" 
+                class="type-btn" 
+                (click)="searchByType(type)">
+          {{ type }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>إدارة القضايا</h3>
+      <p>تتبع وإدارة جميع قضاياك بسهولة وكفاءة. حافظ على تنظيم الملفات والمواعيد والمستندات المهمة.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>تتبع المواعيد</h3>
+      <p>لا تفوت أي موعد مهم. نظام تنبيهات متقدم يذكرك بجميع المواعيد والجلسات القادمة.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>إدارة المستندات</h3>
+      <p>تخزين وتنظيم جميع المستندات والوثائق المتعلقة بالقضايا في مكان واحد آمن.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>تقارير وإحصائيات</h3>
+      <p>تحليلات متقدمة ورؤى مفصلة حول أداء مكتبك وسير القضايا.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>الأرشفة الذكية</h3>
+      <p>نظام أرشفة متطور يسهل الوصول إلى القضايا السابقة والمستندات المهمة.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>الدعم المتكامل</h3>
+      <p>فريق دعم متخصص جاهز لمساعدتك في أي وقت تحتاج فيه للمساعدة.</p>
+    </div>
+  </div>
+</div>

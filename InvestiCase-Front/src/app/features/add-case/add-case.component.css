@@ -1,0 +1,75 @@
+.add-case-form {
+  direction: rtl;
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 2rem 1rem;
+}
+.add-case-form h2 {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+}
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.form-group {
+  flex: 1 1 220px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+.form-group input, .form-group textarea {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  min-height: 2.2em;
+  color: #222;
+}
+
+.case-comments {
+  flex: 1 1 100% !important;
+}
+
+.case-comments textarea {
+  min-height: 150px;
+  width: 100%;
+  resize: vertical;
+  margin: 0;
+}
+
+.add-case-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7em 1.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+.add-case-btn:hover {
+  background: #0056b3;
+}
+@media (max-width: 700px) {
+  .add-case-form {
+    padding: 1rem 0.2rem;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+

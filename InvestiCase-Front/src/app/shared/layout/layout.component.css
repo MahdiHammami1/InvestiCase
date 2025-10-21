@@ -1,0 +1,29 @@
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+main {
+  flex: 1;
+  min-height: 80vh;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+
+  main {
+    padding: 1rem;
+    margin-top: 60px; /* Space for fixed navbar */
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0.5rem;
+  }
+}

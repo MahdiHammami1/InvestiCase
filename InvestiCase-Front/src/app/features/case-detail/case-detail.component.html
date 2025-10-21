@@ -1,0 +1,65 @@
+<div *ngIf="loading()">Loading...</div>
+<div *ngIf="error()">{{error()}}</div>
+<div *ngIf="case() && !loading()" class="case-detail-form">
+  <h2 style="text-align:center;"> القضية   </h2>
+  <div class="form-row">
+    <div class="form-group">
+      <label>رقم القضية </label>
+      <div>{{case()?.caseNumber}}</div>
+    </div>
+    <div class="form-group">
+      <label>سنة</label>
+      <div>{{case()?.judicialYear}}</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label> نوع القضية  </label>
+      <div>{{case()?.caseType}}</div>
+    </div>
+    <div class="form-group">
+      <label>الطور</label>
+      <div>{{case()?.phase}}</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>اسم المحكمة</label>
+      <div>{{case()?.court}}</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>اسم الاستاذ </label>
+      <div>{{case()?.lawyer}}</div>
+    </div>
+    <div class="form-group">
+      <label>اسم الخصم</label>
+      <div>{{case()?.opponent}}</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>موعد الجلسة القادمة</label>
+      <div>{{case()?.nextSession}}</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label> موضوع القضية</label>
+      <div>{{case()?.subject}}</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>مسار القضية:</label>
+      <div>{{case()?.comments}}</div>
+    </div>
+  </div>
+  <div class="form-row" *ngIf="case()?.document">
+    <div class="form-group">
+      <label>المستندات</label>
+      <div><a [href]="getDocumentUrl()" download>Download</a></div>
+    </div>
+  </div>
+</div>

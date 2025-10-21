@@ -1,0 +1,225 @@
+.add-case-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7em 1.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+.add-case-btn:hover {
+  background: #0056b3;
+}
+.archive-table {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* RTL and responsive form layout for archive list */
+.archive-list-form {
+  direction: rtl;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 2rem 1rem;
+}
+.archive-list-form h2 {
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+}
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.form-group {
+  flex: 1 1 220px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: #333;
+}
+.form-group input {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  min-height: 2.2em;
+  color: #222;
+}
+.archive-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  display: table;
+}
+.archive-table th, .archive-table td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: right;
+  white-space: nowrap;
+}
+.archive-table th {
+  background: #f4f4f4;
+}
+/* Responsive Container */
+.archive-list-form {
+  max-width: 100%;
+  margin: 1rem;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+/* Responsive Table Container */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Table Styles */
+.archive-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+}
+
+.archive-table th {
+  background: #f8fafc;
+  padding: 1rem;
+  font-weight: 600;
+  text-align: right;
+  border-bottom: 2px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.archive-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: right;
+}
+
+.archive-table tr:hover {
+  background: #f8fafc;
+}
+
+/* Filters */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  flex: 1 1 200px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Pagination */
+.archive-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.archive-pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.archive-pagination button:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.archive-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .archive-list-form {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  .form-group {
+    flex: 1 1 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    gap: 0.75rem;
+  }
+
+  .form-group input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .archive-table th,
+  .archive-table td {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .archive-list-form {
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group {
+    flex: 1 1 100%;
+  }
+
+  .archive-pagination {
+    gap: 0.5rem;
+  }
+
+  .archive-pagination button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}

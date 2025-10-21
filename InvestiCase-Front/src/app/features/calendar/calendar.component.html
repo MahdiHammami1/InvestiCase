@@ -1,0 +1,40 @@
+<div class="calendar-container" dir="rtl">
+  <div class="calendar-header">
+    <h2 class="calendar-title">جدول القضايا الأسبوعي</h2>
+    <div class="calendar-navigation">
+      <button class="nav-button" (click)="previousWeek()">الأسبوع السابق</button>
+      <button class="nav-button" (click)="nextWeek()">الأسبوع القادم</button>
+    </div>
+  </div>
+
+  <div class="calendar-grid">
+    <div *ngFor="let date of currentWeek" 
+         class="calendar-day"
+         [class.today]="isToday(date)">
+      <div class="day-header">
+        <div class="day-name">{{ getDayName(date) }}</div>
+        <div class="day-date">{{ date | date:'yyyy/MM/dd' }}</div>
+      </div>
+      
+      <ng-container *ngIf="getCasesForDate(date) as dailyCases">
+        <div *ngIf="dailyCases.length > 0">
+          <div *ngFor="let case of dailyCases" 
+               class="case-item"
+               [routerLink]="['/case', case.id]">
+            <div class="case-number">{{ case.caseNumber }}</div>
+            <div class="case-type">{{ case.caseType }}</div>
+            <div class="case-court">{{ case.court }}</div>
+          </div>
+        </div>
+        
+        <div *ngIf="dailyCases.length === 0" class="no-cases">
+          لا توجد قضايا
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading-overlay">
+    جاري التحميل...
+  </div>
+</div>
