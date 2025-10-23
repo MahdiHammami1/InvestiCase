@@ -28,17 +28,15 @@ InvestiCase is an “Investigation Case Manager” solution, designed to help ma
 - Responsive web UI for easier use across devices  
 
 ## Tech Stack  
-- Frontend: TypeScript, HTML, CSS (as visible from repo stats) :contentReference[oaicite:2]{index=2}  
-- Backend: Java (as indicated in languages breakdown) :contentReference[oaicite:3]{index=3}  
-- Other: Possibly Node or other tooling for build / serve  
-
+- Frontend: Angular :contentReference[oaicite:2]{index=2}  
+- Backend: Spring Boot (as indicated in languages breakdown) :contentReference[oaicite:3]{index=3}  
+  
 ## Architecture & Workflow  
 1. A user logs into the web interface and creates or views a case.  
 2. The UI communicates with the backend API to retrieve or update case data.  
 3. Data is stored in a database (to be specified/configured).  
 4. Administrators or investigators process case statuses, comments, attachments, etc.  
-5. Optionally you may have CI/CD pipelines to build, test and deploy both frontend and backend.
-
+5. User have a calendar listing the cases in each day 
 ## Getting Started  
 
 ### Prerequisites  
